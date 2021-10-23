@@ -32,11 +32,11 @@ export default function Player({
 
   return (
     <Card>
-      <CardImg top width="100%" src={player.imageUrl} alt={player.name} />
+      <CardImg top width="20%" height="20%" src={player.imageUrl} alt={player.name} />
       <CardBody>
         <CardTitle tag="h5">{player.name}</CardTitle>
         <CardSubtitle tag="h5">{player.position}</CardSubtitle>
-        <CardText visibility="hidden">{player.uid} {userId}</CardText>
+        <CardText visibility="hidden">Hi {userId} this player was entered by: {player.uid} </CardText>
         <div>
           <Button
             onClick={() => setEditPlayer(player)}

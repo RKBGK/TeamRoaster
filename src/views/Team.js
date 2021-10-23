@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Player from '../components/Player';
-// import { getPlayers } from '../api/data/playerData';
 
 export default function Team({
   players,
@@ -9,9 +8,6 @@ export default function Team({
   setEditPlayer,
   userId,
 }) {
-  // useEffect(() => {
-  //   getPlayers(userId).then(setPlayers);
-  // }, []);
   return (
     <div>
       <h1>Team Players</h1>
