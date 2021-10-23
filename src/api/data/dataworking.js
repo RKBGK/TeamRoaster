@@ -5,9 +5,9 @@ const baseURL = firebaseConfig.databaseURL;
 // const user = 'kaur.ruby2020';
 // 'rubiblr' kaur.ruby2020;
 // .get(`${baseURL}/players.json?orderBy="uid"&equalTo="${user}"`)
-const getPlayers = (user) => new Promise((resolve, reject) => {
+const getPlayers = () => new Promise((resolve, reject) => {
   axios
-    .get(`${baseURL}/players.json?orderBy="uid"&equalTo="${user}"`)
+    .get(`${baseURL}/players.json`)
     .then((response) => resolve(Object.values(response.data)))
     .catch(reject);
 });
@@ -20,7 +20,7 @@ const createPlayer = (object) => new Promise((resolve, reject) => {
         .patch(`${baseURL}/players/${response.data.name}.json`, {
           firebaseKey: response.data.name,
         })
-        .then(() => getPlayers(object.uid).then(resolve));
+        .then(() => getPlayers().then(resolve));
     })
     .catch(reject);
 });
@@ -28,14 +28,14 @@ const createPlayer = (object) => new Promise((resolve, reject) => {
 const deletePlayer = (playerObj) => new Promise((resolve, reject) => {
   axios
     .delete(`${baseURL}/players/${playerObj.firebaseKey}.json`)
-    .then(() => getPlayers(playerObj.uid).then(resolve))
+    .then(() => getPlayers().then(resolve))
     .catch(reject);
 });
 
 const updatePlayer = (playerObj) => new Promise((resolve, reject) => {
   axios
     .patch(`${baseURL}/players/${playerObj.firebaseKey}.json`, playerObj)
-    .then(() => getPlayers(playerObj.uid).then(resolve))
+    .then(() => getPlayers().then(resolve))
     .catch(reject);
 });
 

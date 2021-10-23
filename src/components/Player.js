@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 // import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import {
@@ -20,13 +20,13 @@ export default function Player({
   setEditPlayer,
   userId,
 }) {
-  const history = useHistory();
+  // const history = useHistory();
   const handleClick = (method) => {
     if (method === 'delete') {
       deletePlayer(player).then(setPlayers);
     } else {
+      // history.pushState('/New');
       updatePlayer(player).then(setPlayers);
-      history.pushState('/New');
     }
   };
 
@@ -36,8 +36,7 @@ export default function Player({
       <CardBody>
         <CardTitle tag="h5">{player.name}</CardTitle>
         <CardSubtitle tag="h5">{player.position}</CardSubtitle>
-        <CardText>{player.uid}</CardText>
-        {userId}
+        <CardText visibility="hidden">{player.uid} {userId}</CardText>
         <div>
           <Button
             onClick={() => setEditPlayer(player)}

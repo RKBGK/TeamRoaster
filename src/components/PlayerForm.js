@@ -107,10 +107,11 @@ export default function PlayerForm({
             required
           >
             <option value="">Position</option>
-            <option value="Bowler">Bowler</option>
+            <option value="AllRounder">AllRounder</option>
             <option value="Batsman">Batsman</option>
-            <option value="WicketKeeper">WicketKeeper</option>
+            <option value="Bowler">Bowler</option>
             <option value="Fielder">Fielder</option>
+            <option value="WicketKeeper">WicketKeeper</option>
           </select>
           <button className="btn btn-success" type="submit">
             {playerObj.firebaseKey ? 'Update' : 'Submit'}

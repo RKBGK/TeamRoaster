@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Player from '../components/Player';
+// import { getPlayers } from '../api/data/playerData';
 
 export default function Team({
   players,
@@ -8,6 +9,9 @@ export default function Team({
   setEditPlayer,
   userId,
 }) {
+  // useEffect(() => {
+  //   getPlayers(userId).then(setPlayers);
+  // }, []);
   return (
     <div>
       <h1>Team Players</h1>
@@ -25,10 +29,8 @@ export default function Team({
 }
 
 Team.propTypes = {
-  players: PropTypes.arrayOf(PropTypes.object),
+  players: PropTypes.arrayOf(PropTypes.object).isRequired,
   setPlayers: PropTypes.func.isRequired,
   setEditPlayer: PropTypes.func.isRequired,
-  userId: PropTypes.string,
+  userId: PropTypes.string.isRequired,
 };
-
-Team.defaultProps = { players: {}, userId: {} };
